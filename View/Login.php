@@ -23,5 +23,7 @@ require '../Controller/credentials.php';
             <br>
             <input type="submit" name = "login" value="Login">
         </form>
+
+        <a href="ForgotPass.php">Forgot Password?</a>
     </body>
 </html>

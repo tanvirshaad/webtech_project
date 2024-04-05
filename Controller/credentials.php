@@ -8,10 +8,23 @@ if(isset($_POST['register']))
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $uname = $_POST['uname'];
+        $password = $_POST['password'];
         $cpassword = $_POST['cpassword'];
+        $secQuestion = $_POST['secQuestion'];
+        $ans = $_POST['ans'];
+        if($password == $cpassword)
+        {
+            $_SESSION['passwordmatched'] = "";
+            createUser($fname, $lname, $uname, $cpassword , $secQuestion , $ans);
+            header('Location: http://localhost/project/View/Login.php');
+        }
+        else
+        {
+            $_SESSION['passwordmatched'] = "Password does not match";
+            header('Location: http://localhost/project/View/Register.php');
+        }
     }
-    createUser($fname, $lname, $uname, $cpassword);
-    header('Location: http://localhost/project/View/Login.php');
+    
 }
 
 if(isset($_POST['login']))

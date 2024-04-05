@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
 
     <a href="../Controller/logout.php">Logout</a>
     <br>
-    <a href="update.php">Update</a>
+    <a href="update.php">Update user details</a>
 
     
 </body>

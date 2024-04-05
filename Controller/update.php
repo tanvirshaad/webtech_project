@@ -9,10 +9,10 @@ if(isset($_POST['update']))
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $uname = $_POST['uname'];
+        $id = $loggedIn['id'];
         $password = $_POST['password'];
-        echo $fname;
-        // updateUser($fname, $lname, $uname, $password);
-        // Location()
+        updateUser($id, $uname ,$fname, $lname, $uname, $password);
+        echo '<br><label for="bd">Go back to</label>'.'<a href = "../view/welcome.php"> home page </a>';
     }
 }
 ?>
