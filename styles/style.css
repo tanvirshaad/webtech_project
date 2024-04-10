@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+}
+.logo
+{
+    float: left;
+}
+.pages{
+    float: right;
+}
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+
+}
+.navbar{
+    display: block;
+    width: auto;
+}

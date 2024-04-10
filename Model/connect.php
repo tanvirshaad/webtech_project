@@ -106,7 +106,7 @@ function changePass($username, $password)
 
 }
 
-function createUser($fname, $lname, $uname, $cpassword , $secQuestion , $ans)
+function createUser($fname, $lname, $email, $uname, $cpassword , $secQuestion , $ans)
 {
   $servername = "localhost";
   $dbusername = "root";
@@ -121,11 +121,11 @@ function createUser($fname, $lname, $uname, $cpassword , $secQuestion , $ans)
     die("Connection failed: " . $conn->connect_error);
   }
   
-    $sql = "INSERT INTO users (firstName, lastName, username, password , secQuestion , ans) VALUES (?, ?, ?, ?, ? ,?)";
+    $sql = "INSERT INTO users (firstName, lastName, email, username, password , secQuestion , ans) VALUES (?, ?, ?, ?, ? ,?, ?)";
     $stmt = $conn->prepare($sql);
 
     
-    $stmt->bind_param("ssssss", $fname, $lname, $uname, $cpassword, $secQuestion, $ans);
+    $stmt->bind_param("sssssss", $fname, $lname, $email, $uname, $cpassword, $secQuestion, $ans);
 
     
     if ($stmt->execute()) {
