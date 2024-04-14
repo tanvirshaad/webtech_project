@@ -19,6 +19,6 @@ if (!isset($_SESSION['username'])) {
     <br>
     <a href="update.php">Update user details</a>
 
-    
+    <?php print_r($_SESSION); ?>
 </body>
 </html>
