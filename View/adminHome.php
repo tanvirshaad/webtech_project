@@ -9,23 +9,33 @@ require '../Controller/adminHome.php';
     <title>Admin | Home</title>
 </head>
 <body>
-    <h1>Total user: <?php echo print_r($allUsers); ?></h1>
-    <table>
-        <tr>
-            <th>Username</th>
-            <th>Name</th>
-            <th>User Id</th>
-            <th>Action</th>
-        </tr>
-        <?php
+    <h1>Total user: <?php echo count($allUsers); ?></h1>
+    <?php
+    echo var_dump($_SESSION);
+    echo "<table border=1>";
+        
+        echo "<tr>";
+            echo "<th>" . "Userid" . "</th>";
+            echo "<th>" . "Username" . "</th>";
+            echo "<th>" . "email" . "</th>";
+            echo "<th>" . "Name" . "</th>";
+            echo "<th>" . "Action" . "</th>";
+            
+        echo "</tr>";
+        
             foreach($allUsers as $user)
             {
-                echo $user['username'] . "<br>";
-                // echo "<tr";
-                //     echo "<td>" . ['username'] .  "<td>";
-                // echo "<tr>";
+                echo "<tr>";
+                    echo "<td>" . $user['id'] . "<br>" .  "</td>";
+                    echo "<td>" . $user['username'] . "<br>" .  "</td>";
+                    echo "<td>" . $user['email'] . "<br>" .  "</td>";
+                    echo "<td>" . $user['firstName'] . " " . $user['lastName'] . "<br>" .  "</td>";
+                    
+                echo "<tr>";
+                // echo $user['username'] . "<br>";
             }
-        ?>
-    </table>
+            
+    echo "</table>";
+    ?>
 </body>
 </html>
