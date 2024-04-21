@@ -13,10 +13,11 @@ if(isset($_POST['register']))
         $cpassword = $_POST['cpassword'];
         $secQuestion = $_POST['secQuestion'];
         $ans = $_POST['ans'];
+        $role = "user";
         if($password == $cpassword)
         {
             $_SESSION['passwordmatched'] = "";
-            createUser($fname, $lname, $email, $uname, $cpassword , $secQuestion , $ans);
+            createUser($fname, $lname, $email, $uname, $cpassword , $secQuestion , $ans, $role);
             header('Location: http://localhost/project/View/Login.php');
         }
         else
