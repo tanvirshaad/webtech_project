@@ -7,15 +7,6 @@ body {
     font-weight: 400;
 }
 
-.loginform{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
-}
-
-
-
 .navbar {
     display: flex;
     width: 100% !important;
@@ -73,8 +64,4 @@ a {
     background-color: black;
     transition: 0.3s;
     border: 2px solid black;
-}
-a{
-    text-decoration: none;
-    float: left!important;
 }

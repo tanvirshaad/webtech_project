@@ -12,6 +12,20 @@ require '../Controller/credentials.php';
         <link rel="stylesheet" href="../styles/login.css">
     </head>
     <body>
+        <div class="navbar">
+                <div class="logo">
+                    <ul>
+                        <li><a href="">Driver Chai</a></li>
+                    </ul>
+                </div>
+                <div class="navoption">
+                    <ul>
+                        <li><a href="../index.php">Home</a></li>
+                        <li><a href="Register.php">Register</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
         <section class="loginform">
             <form action="../Controller/credentials.php" method="POST">
             <label for="uname">Username:</label>
@@ -27,6 +41,8 @@ require '../Controller/credentials.php';
                 
             </div>
             <input type="submit" name = "login" value="Login" class="btn">
+            <br>
+            <br>
             <a class="link" href="ForgotPass.php">Forgot Password?</a>
         </form>
 

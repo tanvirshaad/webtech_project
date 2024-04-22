@@ -7,15 +7,6 @@ body {
     font-weight: 400;
 }
 
-.loginform{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
-}
-
-
-
 .navbar {
     display: flex;
     width: 100% !important;
@@ -62,19 +53,4 @@ a {
     color: black;
     transition: 0.3s;
     padding: 5px;
-}
-.btn {
-    padding: 5px 12px;
-    font-weight: 500;
-}
-
-.btn:hover {
-    color: white;
-    background-color: black;
-    transition: 0.3s;
-    border: 2px solid black;
-}
-a{
-    text-decoration: none;
-    float: left!important;
 }
