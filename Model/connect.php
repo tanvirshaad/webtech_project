@@ -59,7 +59,6 @@ function loggedIn()
     if ($result->num_rows > 0) {
         // Fetching row
         $row = $result->fetch_assoc();
-        return $row;
 
     } else {
         echo "0 results";
@@ -67,6 +66,7 @@ function loggedIn()
 
     $stmt->close();
     $conn->close();
+    return $row;
 }
 
 function forgotPass($username)

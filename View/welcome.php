@@ -1,5 +1,10 @@
 <?php
-session_start();
+//session_start();
+require '../Controller/credentials.php';
+
+$_SESSION['userId'] = $currentUser['role'];
+//array_push($user, '$currentUser');
+//echo $user;
 if (!isset($_SESSION['username'])) {
 		header("Location: Login.php");
 		exit();
@@ -14,7 +19,7 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../styles/welcome.css">
 </head>
 <body>
-    <div class="navbar">
+            <div class="navbar">
                 <div class="logo">
                     <ul>
                         <li><a href="">Driver Chai</a></li>
@@ -23,18 +28,21 @@ if (!isset($_SESSION['username'])) {
                 <div class="navoption">
                     <ul>
                         <li><a href="../index.php">Home</a></li>
-                        <li><a href="Register.php">Register</a></li>
+                        <li><a href="Register.php">Profile</a></li>
                         <li><a class="disabled">Logged in as: <?php echo $_SESSION['username']; ?></a></li>
                     </ul>
                     <!-- <a href="#about">About</a> -->
                 </div>
             </div>
-    <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
-
-    <a class="btn" href="../Controller/logout.php">Logout</a>
-    <br>
-    <a href="update.php">Update user details</a>
+            <section class="content">
+                <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
+                <button class="btn"><a  href="../Controller/logout.php">Logout</a></button>
+                <br>
+                <br>
+    <a class="update" href="update.php">Update user details</a>
 
     <?php print_r($_SESSION); ?>
+            </section>
+    
 </body>
 </html>

@@ -54,39 +54,3 @@ a {
     transition: 0.3s;
     padding: 5px;
 }
-.btn {
-    padding: 5px 12px;
-    font-weight: 500;
-    color: black;
-}
-.btn a {
-    color: black;
-}
-
-.btn:hover {
-    color: white !important;
-    background-color: black;
-    transition: 0.3s;
-    border: 2px solid black;
-}
-.btn a:hover {
-    color: white;
-}
-.disabled:hover {
-    color: white;
-    background-color: black;
-}
-.update {
-    background-color: white;
-    padding: 10px 20px;
-    border: 2px solid black;
-    color: black;
-}
-.update:hover {
-    background-color: black;
-    color: white;
-    transition: 0.3s;
-}
-.content {
-    padding: 20px 35px;
-}

@@ -1,6 +1,8 @@
 <?php
 session_start();
 require '../Model/connect.php';
+$currentUser = loggedIn();
+
 if(isset($_POST['register']))
 {
     if($_SERVER['REQUEST_METHOD'] == 'POST')

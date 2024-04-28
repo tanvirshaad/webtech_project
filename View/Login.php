@@ -9,6 +9,7 @@ require '../Controller/credentials.php';
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Login</title>
+        <script type="text/javascript" src="../js/loginValidate.js"></script>
         <link rel="stylesheet" href="../styles/login.css">
     </head>
     <body>
@@ -27,13 +28,13 @@ require '../Controller/credentials.php';
                 </div>
             </div>
         <section class="loginform">
-            <form action="../Controller/credentials.php" method="POST">
+            <form action="../Controller/credentials.php" method="POST" onsubmit="return loginValidate();" novalidate>
             <label for="uname">Username:</label>
-            <input type="text" name="uname" id="" />
+            <input type="text" name="uname" id="username" />
             <br>
             <br>
             <label for="password">Password:</label>
-            <input type="password" name="password" id="" />
+            <input type="password" name="password" id="password" />
             
             <br>
             <br>

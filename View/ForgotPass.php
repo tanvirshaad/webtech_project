@@ -8,8 +8,23 @@ require '../Controller/ResetPass.php';
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Forgot Password</title>
+        <link rel="stylesheet" href="../styles/ForgotPass.css">
     </head>
     <body>
+        <div class="navbar">
+                <div class="logo">
+                    <ul>
+                        <li><a href="">Driver Chai</a></li>
+                    </ul>
+                </div>
+                <div class="navoption">
+                    <ul>
+                        <li><a href="../index.php">Home</a></li>
+                        <li><a href="Register.php">Register</a></li>
+                        <!-- <li><a href="#about">Logged In as: Admin</a></li> -->
+                    </ul>
+                </div>
+            </div>
         <form action="../Controller/ResetPass.php" method="POST">
         <br>
             <br>
@@ -38,7 +53,7 @@ require '../Controller/ResetPass.php';
             <input type="cpassword" name="cpassword" id="" />
             <br>
             <br>
-            <input type="submit" name = "fpass" value="Change Password">
+            <input type="submit" name = "fpass" value="Change Password" class="btn">
         </form>
     </body>
 </html>
