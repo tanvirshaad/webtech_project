@@ -2,7 +2,7 @@
 //session_start();
 require '../Controller/credentials.php';
 
-$_SESSION['userId'] = $currentUser['role'];
+$_SESSION['userId'] = $currentUser['id'];
 //array_push($user, '$currentUser');
 //echo $user;
 if (!isset($_SESSION['username'])) {

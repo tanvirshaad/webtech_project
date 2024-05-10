@@ -11,7 +11,7 @@ if(isset($_POST['update']))
         $uname = $_POST['uname'];
         $id = $loggedIn['id'];
         $password = $_POST['password'];
-        updateUser($id, $uname ,$fname, $lname, $uname, $password);
+        updateUser($id, $uname ,$fname, $lname, $password);
         echo '<br><label for="bd">Go back to</label>'.'<a href = "../view/welcome.php"> home page </a>';
     }
 }
