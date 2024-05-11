@@ -168,4 +168,44 @@ function deleteGig($g_id)
     $stmt->close();
     $conn->close();
 }
+
+function getGigCreator($g_id)
+{
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "my_app";
+    
+    // Create connection
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT id FROM gigs WHERE g_id = ?";
+    $stmt = $conn->prepare($sql);
+
+   
+    $stmt->bind_param("i", $g_id);
+
+    
+    $stmt->execute();
+
+  
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Fetching row
+        $row = $result->fetch_assoc();
+
+    } else {
+        echo "0 results";
+    }
+
+    $stmt->close();
+    $conn->close();
+    $gigCreatedBy = $row['id']; 
+    return $gigCreatedBy;
+}
 ?>

@@ -10,5 +10,8 @@ if(isset($_POST['request']))
     $status = "pending";
     $c_id = $_SESSION['userId'];
     createNewJob($g_id, $c_id, $status);
+    $d_id = getGigCreator($g_id);
+    $j_id = getCurrentJobId();
+    bindDriverWithJob($j_id, $d_id, $c_id);
 }
 ?>
