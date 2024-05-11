@@ -137,4 +137,35 @@ function getAllGigs()
     $conn->close();
     return $allGigs;
 }
+
+function deleteGig($g_id)
+{
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "my_app";
+
+    // Create connection
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "DELETE FROM gigs WHERE g_id=?";
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("i", $g_id);
+
+    // Execute statement
+    if ($stmt->execute()) {
+        echo "Record deleted successfully";
+    } else {
+        echo "Error deleting record: " . $stmt->error;
+    }
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
 ?>

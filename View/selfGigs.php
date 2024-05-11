@@ -31,6 +31,7 @@ if (!isset($_SESSION['username'])) {
             else{
                 echo "Staus: Unavailable";
             }
+            echo "<div>" . "<form action='../Controller/getSelfGig.php' method='POST' ><input type='hidden' name='g_id' value='" .$gigs['g_id'] . "'> <input type='submit' name='delete' value='Delete'>" . "</form></div>";
 
             echo "</div>";
         }
