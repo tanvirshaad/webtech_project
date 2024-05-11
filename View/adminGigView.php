@@ -10,7 +10,7 @@ require '../Controller/adminGigView.php';
 </head>
 <body>
     <?php
-    foreach($availableGigs as $gig)
+    foreach($allGigs as $gig)
     {
         echo $gig['title'];
     }

@@ -129,7 +129,7 @@ function getAllGigs()
     $allGigs = array();
     if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        array_push($allUsers, $row);
+        array_push($allGigs, $row);
     }
     } else {
     echo "0 results";

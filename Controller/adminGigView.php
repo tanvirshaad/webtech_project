@@ -1,5 +1,5 @@
 <?php
 require '../Model/gig.php';
-$availableGigs = getAllAvailableGigs();
+$allGigs = getAllGigs();
 
 ?>
