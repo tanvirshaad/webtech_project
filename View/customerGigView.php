@@ -23,17 +23,11 @@ require '../Controller/customerGigView.php';
             // echo "<br>";
             echo "<h5>" . "Car Type: " . $gigs['car_type'] . "</h5>";
             echo "<h2>" . "Hourly Rate: " . $gigs['hourly_rate'] . "</h2>";
-            if($gigs['available'])
-            {
-                echo "Staus: Available";
-            }
-            else{
-                echo "Staus: Unavailable";
-            }
-
+            echo "<div>" . "<form action='../Controller/customerGigView.php' method='POST' ><input type='hidden' name='g_id' value='" .$gigs['g_id'] . "'> <input type='submit' name='request' value='Send Request'>" . "</form></div>";
             echo "</div>";
         }
         echo '</div>';
+        print_r($_SESSION);
         ?>
 </body>
 </html>
