@@ -138,4 +138,30 @@ function getRequestedCustomer($j_id)
     return $requestedCustomer;
 }
 
+
+function updateJobStatus($status, $id)
+{
+    $servername = "localhost";
+	$dbusername = "root";
+	$dbpassword = "";
+	$dbname = "my_app";
+
+	$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+	if ($conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "UPDATE jobs set status = ? where c_id = ?";
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param("si", $status, $id);
+	$result = $stmt->execute();
+	if($result)
+	{
+	echo "Updated";
+
+	}else
+	{
+		echo "Failed to update password";
+	}
+}
 ?>

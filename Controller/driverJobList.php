@@ -16,4 +16,12 @@ foreach($selfJobs as $selfjob)
     array_push($userDetails, getSpecificCustomerDetails($c_id[0]));
 }
 
+
+if(isset($_POST['accept']))
+{
+    $status = 'accepted';
+    $id = $_POST['userId'];
+    updateJobStatus($status, $id);
+}
+
 ?>
