@@ -216,7 +216,7 @@ function credentials($username, $password)
     $conn->close();
   }
 
-  function updateUser($id, $uname , $fname, $lname, $password)
+function updateUser($id, $uname , $fname, $lname, $password)
 {
     $servername = "localhost";
     $dbusername = "root";
@@ -248,4 +248,53 @@ function credentials($username, $password)
     $stmt->close();
     $conn->close();
 }
+
+function getSpecificCustomerDetails($id)
+{
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "my_app";
+
+    // Create connection
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+    
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        die("Error in preparing statement: " . $conn->error);
+    }
+
+    $stmt->bind_param("i", $id);
+
+    if (!$stmt->execute()) {
+        die("Error in executing statement: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    if (!$result) {
+        die("Error in getting result: " . $stmt->error);
+    }
+
+    $users = array();
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            array_push($users, $row);
+        }
+    } else {
+        echo "0 results";
+    }
+    $stmt->close();
+    $conn->close();
+    return $users;
+}
+
 ?>
