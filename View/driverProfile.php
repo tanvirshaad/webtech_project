@@ -2,6 +2,9 @@
 // session_abort();
 // session_start();
 require '../Controller/credentials.php';
+// require '../Controller/getSelfGig.php';
+// require '../Controller/driverJobList.php';
+require '../Controller/driverProfile.php';
 $currentUser = loggedIn();
 ?>
 <!DOCTYPE html>
@@ -30,17 +33,35 @@ $currentUser = loggedIn();
     <div class="section">
         <h1>Welcome <?php echo $_SESSION['username']; ?></h1>
         <!-- <?php print_r($currentUser) ?> -->
-        <label for="uname">For the Username: </label>
-            <input type="text" name="uname" id="" value="<?php echo $currentUser['username']; ?>" />
-            <br>
+      
+      
             <br>
             <label for="fname">First Name:</label>
-            <input type="text" name="fname" id="" value="<?php echo $currentUser['firstName']; ?>" />
+            <?php echo $currentUser['firstName'];?> 
             <br>
-            <br>
+         
             
             <label for="lname">Last Name:</label>
-            <input type="text" name="lname" id="" value="<?php echo $currentUser['lastName'];?>" />
+            <?php echo $currentUser['lastName'];?>
+            <br>
+            <label for="uname">User Name:</label>
+            <?php echo $currentUser['username'];?>
+            <br>
+            <label for="gigcount">Total Gig:</label>
+            <?php
+             if(count($selfgigs))
+             {
+                echo count($selfgigs);
+             }
+             else
+             {
+                echo '0';
+             }
+             
+            ?>
+            <br>
+          
+            
             <br>
             <br>
      

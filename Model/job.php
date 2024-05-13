@@ -62,7 +62,7 @@ function getCurrentJobId()
     
     //print_r($allJobsId);
     
-    echo end($allJobsId);
+    // echo end($allJobsId);
     return end($allJobsId);
 }
 
@@ -163,5 +163,42 @@ function updateJobStatus($status, $id)
 	{
 		echo "Failed to update password";
 	}
+}
+
+function getHistory($status, $d_id)
+{
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "my_app";
+    // $status = 'pending';
+    // Create connection
+    $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT j.* FROM jobs j JOIN jobdriver jd ON j.j_id = jd.j_id WHERE jd.d_id = ? AND j.status = ?;";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("is",  $d_id, $status);
+
+    
+    $stmt->execute();
+
+  
+    $result = $stmt->get_result();
+
+    $acceptedUser = array();
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        array_push($acceptedUser, $row);
+    }
+    } else {
+    return false;
+    }
+    $conn->close();
+    return $acceptedUser;
 }
 ?>
