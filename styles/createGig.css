@@ -7,6 +7,15 @@ body {
     font-weight: 400;
 }
 
+.loginform {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+
+
 .navbar {
     display: flex;
     width: 100% !important;
@@ -71,28 +80,7 @@ a {
     text-decoration: none;
     float: left !important;
 }
-.gigs-section{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 20px!important;
-}
-.item
-{
-    border: 1px solid salmon;
-    padding: 20px;
-    
-}
+
 .section {
     padding: 40px;
 }
-
-.disabled:hover {
-    color: white;
-    background-color: black;
-}
-
-
-
-
-
-
