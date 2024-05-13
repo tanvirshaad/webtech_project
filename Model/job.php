@@ -100,13 +100,13 @@ function bindDriverWithJob($j_id, $d_id, $c_id)
         $conn->close();
 }
 
-function getRequestedCustomer($j_id)
+function getRequestedCustomer($j_id, $status)
 {
     $servername = "localhost";
     $dbusername = "root";
     $dbpassword = "";
     $dbname = "my_app";
-
+    // $status = 'pending';
     // Create connection
     $conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
     // Check connection
@@ -114,9 +114,9 @@ function getRequestedCustomer($j_id)
     die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM jobs WHERE j_id = ?";
+    $sql = "SELECT * FROM jobs WHERE j_id = ? AND status = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $j_id);
+    $stmt->bind_param("is", $j_id, $status);
 
     
     $stmt->execute();
@@ -131,7 +131,7 @@ function getRequestedCustomer($j_id)
         array_push($requestedCustomer, $row['c_id']);
     }
     } else {
-    echo "0 results";
+    return false;
     }
     $conn->close();
     //echo $requestedCustomer;

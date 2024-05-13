@@ -12,8 +12,18 @@ $userDetails = array();
 foreach($selfJobs as $selfjob)
 {
     $j_id = $selfjob;
-    $c_id = getRequestedCustomer($j_id);
-    array_push($userDetails, getSpecificCustomerDetails($c_id[0]));
+    if(getRequestedCustomer($j_id, 'pending'))
+    {
+        $c_id = getRequestedCustomer($j_id, 'pending');
+        print_r($c_id);
+        array_push($userDetails, getSpecificCustomerDetails($c_id[0]));
+        print_r($userDetails);
+    }
+    else
+    {
+        
+    }
+    
 }
 
 
